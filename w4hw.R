@@ -19,6 +19,7 @@ library(sp)
 library(rgeos)
 library(tmap)
 library(tmaptools)
+library(countrycode)
 
 gender_global <- read_csv("HDR21-22_Statistical_Annex_GII_Table.csv",
                    locale = locale(encoding = "latin1"),
@@ -35,7 +36,8 @@ gender_global_clean <- gender_global %>%
   select(hdi_index, country, gender_inequality_index, rank_2021) %>% 
   filter(hdi_index != "",
          gender_inequality_index != "",
-         gender_inequality_index!= "..")
+         gender_inequality_index!= "..") %>% 
+  add_column(diff1019 = '')
 
 dfgender_global <- as.data.frame(gender_global_clean)
 
