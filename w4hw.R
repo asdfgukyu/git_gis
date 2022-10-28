@@ -50,3 +50,4 @@ gender_inequal_map<- world %>%
            .keep_all = TRUE) %>% 
   filter(gii_2010 != "") %>% 
   dplyr::select(-iso3, -aff_iso, -country.y, -countryaff)
+
